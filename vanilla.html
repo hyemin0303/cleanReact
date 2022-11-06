@@ -8,29 +8,19 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
+  const root = document.getElementById("root");
   function App() {
-    const [munutes, setMinutes] = React.useState()
-    const onChange = (event) => {
-      setMinutes(event.target.value);
-    }
-    const reset = () => setMinutes(0);
-
+    const [counter , setCounter] = React.useState(0);
+    const onClick = () => {
+      setCounter((current) => current + 1);
+    };
     return (
       <div>
-        <h1 className="hi">Super Converter</h1>
-        <div>
-          <label htmlFor="minutes">Minutes</label>
-          <input onChange={onChange} value={munutes} id="minutes" type="number" placeholder="Minutes"/>
-        </div>
-        <div>
-            <label htmlFor="hours">Hours</label>
-            <input value={munutes / 60} id="hours" type="number" placeholder="Hours"/>
-        </div>
-        <button onClick={reset}>Reset</button>
+        <h3>ToTal Click: {counter}</h3>
+        <button onClick={onClick}>Click me</button>
       </div>
     );
   }
-  const root = document.getElementById("root");
   ReactDOM.render(<App />, root);
 </script>
 </html>
